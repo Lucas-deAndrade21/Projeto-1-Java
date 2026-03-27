@@ -2,6 +2,7 @@ public class Aluno {
     private String nome;
     private int idade;
     private String matricula;
+    private boolean aprovado;
     private Professor professor;
 
     public Aluno(String nome, int idade, String matricula, Professor professor) {
@@ -25,5 +26,17 @@ public class Aluno {
 
     public Professor getProfessor() {
         return professor;
+    }
+
+    public boolean isAprovado() {
+        return aprovado;
+    }
+
+    public void setAprovado(int nota) {
+        if (nota >= 6) {
+            this.aprovado = true;
+        } else {
+            this.aprovado = false;
+        }
     }
 }

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         //Instanciando professores
@@ -18,15 +20,32 @@ public class Main {
         professor2.adicionarAluno(aluno3);
         professor2.adicionarAluno(aluno4);
 
+        //Definindo a aprovação
+        System.out.println("Notas dos alunos do professor " + professor1.getNome() + ":");
+        for (Aluno aluno : professor1.getAlunos()) {
+            System.out.print(aluno.getNome() + ": ");
+            Scanner scanner = new Scanner(System.in);
+            int nota = scanner.nextInt();
+            aluno.setAprovado(nota);
+        }
+
+        System.out.println("\nNotas dos alunos do professor " + professor2.getNome() + ":");
+        for (Aluno aluno : professor2.getAlunos()) {
+            System.out.print(aluno.getNome() + ": ");
+            Scanner scanner = new Scanner(System.in);
+            int nota = scanner.nextInt();
+            aluno.setAprovado(nota);
+        }
+
         //Exibindo informações dos professores e seus alunos
         System.out.println("Professor: " + professor1.getNome() + "\nMatéria: " + professor1.getMateria());
         for (Aluno aluno : professor1.getAlunos()) {
-            System.out.println(aluno.getNome() + " - " + aluno.getMatricula());
+            System.out.println(aluno.getNome() + " - " + aluno.getMatricula() + " - " + (aluno.isAprovado() ? "Aprovado" : "Reprovado"));
         }
 
         System.out.println("\nProfessor: " + professor2.getNome() + "\nMatéria: " + professor2.getMateria());
         for (Aluno aluno : professor2.getAlunos()) {
-            System.out.println(aluno.getNome() + " - " + aluno.getMatricula());
+            System.out.println(aluno.getNome() + " - " + aluno.getMatricula() + " - " + (aluno.isAprovado() ? "Aprovado" : "Reprovado"));
         }
     }
 }
